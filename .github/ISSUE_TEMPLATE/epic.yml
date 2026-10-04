@@ -1,0 +1,65 @@
+name: Epic
+description: The outcome of a large chunk of work, tracked on the Engineering roadmap.
+title: "<outcome, not activity>"
+type: Epic
+projects: ["climate-resource/2"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        File cross-repo epics in `climate-resource/workspace`, otherwise in the one repo the work touches.
+        After filing, set Product, Priority, Start date and Target date on the Engineering project.
+        The `/epic` skill does all of this for you.
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: One or two lines on what is true when this epic closes.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why now
+      description: The pressure or opportunity behind it.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      value: "- "
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      value: "- "
+  - type: textarea
+    id: repos
+    attributes:
+      label: Repos
+      value: "- climate-resource/"
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: Observable, checkable conditions.
+      value: "- "
+    validations:
+      required: true
+  - type: dropdown
+    id: approach
+    attributes:
+      label: Approach
+      description: |
+        Settled: run `/ralplan-issues --epic`. Open: run `/plan-consensus` first. Foggy: chart a `/wayfinder` map under this epic.
+      options:
+        - settled
+        - open
+        - foggy
+    validations:
+      required: true

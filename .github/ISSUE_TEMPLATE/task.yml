@@ -1,0 +1,23 @@
+name: Task
+description: A specific piece of work.
+type: Task
+labels: [triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: As a [persona], I [want to do], so that [reason].
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      description: What must be true to close this issue, as bullet points.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context

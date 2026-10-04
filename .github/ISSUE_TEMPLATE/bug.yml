@@ -1,0 +1,37 @@
+name: Bug report
+description: Something is broken or behaves unexpectedly.
+type: Bug
+labels: [bug]
+projects: ["climate-resource/2"]
+body:
+  - type: textarea
+    id: bug
+    attributes:
+      label: Describe the bug
+      description: What happened, and where.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: |
+        Steps, a command, or ideally a failing test that someone can paste and run.
+      render: python
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What you expected to happen instead.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Version, OS, Python version, or the deployed environment (staging, production).
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Logs, screenshots, links.

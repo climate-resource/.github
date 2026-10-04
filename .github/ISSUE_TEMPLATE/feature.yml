@@ -1,0 +1,26 @@
+name: Feature request
+description: Request a feature or suggest an idea.
+type: Feature
+labels: [feature]
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: As a [persona], I [want to do], so that [reason].
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: The solution you would like, if you have one in mind.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: Anything else you considered.
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
