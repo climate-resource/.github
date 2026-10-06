@@ -1,0 +1,71 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Climate Resource defaults: one weekly pull request for every non-major update, one per major",
+  "extends": [
+    "config:best-practices",
+    ":semanticCommits",
+    ":timezone(Australia/Melbourne)",
+    "schedule:earlyMondays"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "pre-commit": {
+    "enabled": true
+  },
+  "platformAutomerge": false,
+  "lockFileMaintenance": {
+    "automerge": true
+  },
+  "vulnerabilityAlerts": {
+    "labels": [
+      "dependencies",
+      "security"
+    ]
+  },
+  "packageRules": [
+    {
+      "description": "Every non-major update in one pull request, merged once its checks pass",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin",
+        "pinDigest"
+      ],
+      "groupName": "all non-major",
+      "automerge": true
+    },
+    {
+      "description": "A new Python minor is a runtime upgrade, so it gets its own pull request and a manual review",
+      "matchDepNames": [
+        "python"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "groupName": "python",
+      "automerge": false
+    },
+    {
+      "description": "Let releases settle before proposing them. Digests carry no release timestamp, so they stay out",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "minimumReleaseAge": "3 days"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Versions annotated with a renovate comment on the line above, in any YAML file or its Jinja template",
+      "managerFilePatterns": [
+        "/\\.ya?ml(\\.jinja)?$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>\\S+)(?: extractVersion=(?<extractVersion>\\S+))?\\s+[A-Za-z_-]+: ?[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
+      ]
+    }
+  ]
+}
