@@ -13,10 +13,3 @@ so delete a repository's copies to pick these up.
 
 This repository is public, because GitHub only applies defaults from a public `.github` repository.
 Keep internal detail out of it.
-
-## Renovate
-
-`renovate/base.json` is the shared Renovate preset.
-A repository extends it with `"extends": ["local>climate-resource/.github//renovate/base"]`.
-Every non-major update lands in one weekly pull request that merges once its checks pass,
-and each major gets its own pull request.
